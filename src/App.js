@@ -1,7 +1,8 @@
+import MainScreen from "./screens/main-screen";
 function App() {
   return (
     <div className="App">
-      <span> Izzys Csv Splicer</span>
+      <MainScreen/>
     </div>
   );
 }
