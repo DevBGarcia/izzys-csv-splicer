@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 import { makeStyles } from '@mui/styles';
 
-const ParameterSection = () => {
+const UploadSection = () => {
 
     const classes = useStyles()
 
     return(
-        <div componentfile='ParameterSection.js' className={classes.componentContainer}>
+        <div componentfile='UploadSection.js' className={classes.componentContainer}>
             <div className={classes.stepHeader}>
-                STEP 2: SELECT PARAMETERS
+                STEP 1: UPLOAD CSV FILE
             </div>
             <div className={classes.componentContent}>
-                <div>*Line Count Input*</div>
-                <div>*Number of Files (Calculated Value)*</div>
-                <div>*Column Header Checkbox*</div>
-                <div>*Line Count Input*</div>
+                *FILE INPUT COMPONENT*
             </div>
-            <div className={classes.applyButton}>*Apply Button*</div>
         </div>
     )
 }
@@ -35,11 +31,8 @@ const useStyles = makeStyles({
     componentContent:{
         display:'flex',
         flexDirection:'column',
-        marginLeft: '20%'
-    },
-    applyButton:{
-        alignSelf:'center'
+        alignItems:'center'
     }
 });
 
-export default ParameterSection;
+export default UploadSection;

@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import Divider from "../components/Divider";
 
 import TitleSection from "../components/TitleSection";
-import ImportSection from "../components/ImportSection";
+import UploadSection from "../components/UploadSection";
 import ParameterSection from "../components/ParameterSection";
 import TableSection from "../components/TableSection";
 
@@ -22,7 +22,7 @@ const MainScreen = () => {
             <div className={classes.contentPage}>
                 <TitleSection/>
                 <Divider/>
-                <ImportSection/>
+                <UploadSection/>
                 <Divider/>
                 <ParameterSection/>
                 <Divider/>
