@@ -1,9 +1,7 @@
-import MainScreen from "./screens/main-screen";
+import MainScreen from "./screens/MainScreen.js";
 function App() {
   return (
-    <div className="App">
       <MainScreen/>
-    </div>
   );
 }
 
