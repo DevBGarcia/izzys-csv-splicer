@@ -27,7 +27,8 @@ const useStyles = makeStyles({
     stepHeader: {
         fontSize: '2rem',
         marginLeft: '10%',
-        color:'#00294B'
+        color:'#00294B',
+        fontWeight:700
     },
     componentContent:{
         display:'flex',
