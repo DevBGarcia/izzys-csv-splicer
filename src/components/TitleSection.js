@@ -6,7 +6,7 @@ const TitleSection = () => {
     const classes = useStyles()
 
     return(
-        <div>
+        <div componentfile='TitleSection.js'>
             <div className={classes.stepHeader}>
                 CSV SPLITTER
             </div>

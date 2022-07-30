@@ -3,25 +3,29 @@ import { makeStyles } from '@mui/styles';
 
 /* Created Components */
 import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Divider from "../components/Divider";
+
 import TitleSection from "../components/TitleSection";
 import ImportSection from "../components/ImportSection";
 import ParameterSection from "../components/ParameterSection";
 import TableSection from "../components/TableSection";
-import Footer from "../components/Footer";
 
 
-const MainScreen = (props) => {
+const MainScreen = () => {
 
     const classes = useStyles()
 
-
     return (
-        <div>
+        <div componentfile='MainScreen.js'>
             <Header/>
             <div className={classes.contentPage}>
                 <TitleSection/>
+                <Divider/>
                 <ImportSection/>
+                <Divider/>
                 <ParameterSection/>
+                <Divider/>
                 <TableSection/>
             </div>
             <Footer/>

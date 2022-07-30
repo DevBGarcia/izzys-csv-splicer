@@ -6,7 +6,7 @@ const ParameterSection = () => {
     const classes = useStyles()
 
     return(
-        <div>
+        <div componentfile='ParameterSection.js'>
             <div className={classes.stepHeader}>
                 STEP 2: SELECT PARAMETERS
             </div>

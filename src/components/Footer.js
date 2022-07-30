@@ -6,7 +6,7 @@ const Footer = () => {
     const classes = useStyles()
 
     return(
-        <div className={classes.footer}/>
+        <div componentfile='Footer.js' className={classes.footer}/>
     )
 }
 

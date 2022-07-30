@@ -6,7 +6,7 @@ const Header = () => {
     const classes = useStyles()
 
     return(
-        <div className={classes.header}/>
+        <div componentfile='Header.js' className={classes.header}/>
     )
 }
 

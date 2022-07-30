@@ -6,7 +6,7 @@ const ImportSection = () => {
     const classes = useStyles()
 
     return(
-        <div>
+        <div componentfile='ImportSection.js'>
             <div className={classes.stepHeader}>
                 STEP 1: UPLOAD CSV FILE
             </div>

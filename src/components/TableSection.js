@@ -6,7 +6,7 @@ const TableSection = () => {
     const classes = useStyles()
 
     return (
-        <div>
+        <div componentfile='TableSection.js'>
             <div className={classes.stepHeader}>
                 STEP 3: PREVIEW
             </div>
