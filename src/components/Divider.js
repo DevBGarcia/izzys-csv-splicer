@@ -12,9 +12,10 @@ const Divider = () => {
 
 const useStyles = makeStyles({
     divider: {
+        marginBottom:'44px',
         borderBottom: '1px solid #696969',
         backgroundColor: '#696969',
-        marginTop: '1px'
+        marginTop: '45px'
     }
 });
 
