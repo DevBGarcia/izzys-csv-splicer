@@ -18,7 +18,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:last-child td, &:last-child th': {
       border: 0,
     },
-    width: 4500
   }));
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -30,7 +29,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   const StyledTableHeader = styled(TableCell)(({ theme }) => ({
     lineHeight: 1,
     letterSpacing: 'unset',
-    padding:'8px 16px',
+    padding: 16,
     fontWeight: 'bold'
   }));
 
@@ -73,12 +72,13 @@ const TableFullFilePreview = (props) => {
     }
 
     return (
-        <div componentfile='TableFullFilePreview.js' style={{ width: '100%'}}>
+        <div componentfile='TableFullFilePreview.js' style={{ width: '100%', border:'1px solid rgba(224, 224, 224, 1)' }}>
             <TableContainer style={{height: 640}}>
-                <Table sx={{ minWidth: 650, width:4500}}>
+                <Table sx={{ minWidth: 650 }}>
                     {tableHeaders.length != 0 &&
                     <TableHead>
-                        <TableRow>
+                        <TableRow
+                        >
                             {createTableHeadersCells(tableHeaders)}
                         </TableRow>
                     </TableHead>}
