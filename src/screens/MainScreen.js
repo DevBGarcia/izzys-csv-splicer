@@ -15,6 +15,12 @@ import TableSection from "../components/TableSection";
 const MainScreen = () => {
 
     const classes = useStyles()
+    const [selectedFile, setSelectedFile] = useState(null)
+    const [parsedInputFile, setParsedInputFile] = useState(null)
+
+    const handleInputFileChange = (fileChangeEvent) => {
+        setSelectedFile(fileChangeEvent.target.files[0])
+    }
 
     return (
         <div componentfile='MainScreen.js'>
@@ -22,7 +28,10 @@ const MainScreen = () => {
             <div className={classes.contentPage}>
                 <TitleSection/>
                 <Divider/>
-                <UploadSection/>
+                <UploadSection
+                    selectedFile={selectedFile}
+                    handleInputFileChange={handleInputFileChange}
+                />
                 <Divider/>
                 <ParameterSection/>
                 <Divider/>
