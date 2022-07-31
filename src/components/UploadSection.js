@@ -28,9 +28,9 @@ const UploadSection = (props) => {
                     <FormControl>
                         <OutlinedInput
                             id="outlined-adornment-weight"
-                            value={selectedFile ? selectedFile.name : ''}
+                            value={selectedFile?.name ?? ''}
                             disabled
-                            helperText={<div>Choose a CSV file to upload from your local computer</div>}
+                            helpertext={<div>Choose a CSV file to upload from your local computer</div>}
                             inputProps={{style:{height: 50, padding: 0, marginLeft:8, WebkitTextFillColor:'black'}}}
                         />
                         <FormHelperText><div>Choose a CSV file to upload from your local computer</div></FormHelperText>

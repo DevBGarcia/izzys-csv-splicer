@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import { makeStyles } from '@mui/styles';
 
-const ParameterSection = () => {
+import Button from '@mui/material/Button';
+
+const ParameterSection = (props) => {
 
     const classes = useStyles()
+
+    const {
+        selectedFile,
+        handleApplyButton
+    } = props
 
     return(
         <div componentfile='ParameterSection.js' className={classes.componentContainer}>
@@ -11,12 +18,17 @@ const ParameterSection = () => {
                 STEP 2: SELECT PARAMETERS
             </div>
             <div className={classes.componentContent}>
-                <div>*Line Count Input*</div>
-                <div>*Number of Files (Calculated Value)*</div>
-                <div>*Column Header Checkbox*</div>
-                <div>*Line Count Input*</div>
+                <div>*Input Parameters*</div>
             </div>
-            <div className={classes.applyButton}>*Apply Button*</div>
+            <Button
+                variant="contained"
+                component="label"
+                style={{height: 50, alignSelf:'center'}}
+                onClick={(e) => handleApplyButton(e)}
+                disabled={selectedFile == null}
+            >
+                Apply Parameters
+            </Button>
         </div>
     )
 }
@@ -37,9 +49,6 @@ const useStyles = makeStyles({
         display:'flex',
         flexDirection:'column',
         marginLeft: '20%'
-    },
-    applyButton:{
-        alignSelf:'center'
     }
 });
 

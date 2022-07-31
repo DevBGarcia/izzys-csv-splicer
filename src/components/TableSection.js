@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import { makeStyles } from '@mui/styles';
 
-const TableSection = () => {
+import TableFullFilePreview from "./TableFullFilePreview";
+
+const TableSection = (props) => {
 
     const classes = useStyles()
+
+    const {
+        parsedInputFileHeaders,
+        parsedInputFileRows
+    } = props
 
     return (
         <div componentfile='TableSection.js' className={classes.componentContainer}>
@@ -11,7 +18,10 @@ const TableSection = () => {
                 STEP 3: PREVIEW & DOWNLOAD
             </div>
             <div className={classes.componentContent}>
-                <div>*TABLE COMPONENT*</div>
+                <TableFullFilePreview
+                    parsedInputFileHeaders={parsedInputFileHeaders}
+                    parsedInputFileRows={parsedInputFileRows}
+                />
             </div>
             <div className={classes.applyButton}>*Download Button*</div>
         </div>
