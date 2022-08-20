@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from '@mui/styles';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
@@ -13,14 +13,55 @@ const TableSection = (props) => {
     const {
         parsedInputFileHeaders,
         parsedInputFileRows,
-        fileSplitCount
+        fileSplitCount,
+        parsedInputFileLineCount
     } = props
 
-    const [tabValue, setTabValue] = useState(1)
+    const [tabValue, setTabValue] = useState(0)
 
     const handleChangeTabValue = (event, newValue) => {
         setTabValue(newValue)
     }
+
+    /* Split File Tables State Values and functions */
+
+    const getSplitFiles = () => {
+
+    }
+
+    const [splitFiles, setSplitFiles] = useState([])
+    const [splitFilesLineCount, setSplitFilesLineCount] = useState(null)
+    const [splitFileCountRemainder, setSplitFileLineCountRemainder] = useState(null)
+
+    useEffect(()=> {
+        if(parsedInputFileLineCount && fileSplitCount && parsedInputFileRows){
+            
+            let splitFileRemainder = null;
+            let linesPerFile = Math.ceil(parsedInputFileLineCount/fileSplitCount)
+            if( parsedInputFileLineCount%fileSplitCount !=0 ){
+                splitFileRemainder = Math.floor(parsedInputFileLineCount/fileSplitCount)
+            }
+            
+            let tmpSplitFileArray = []
+            for (let i = 0; i < parsedInputFileRows.length; i += linesPerFile) {
+                const split = parsedInputFileRows.slice(i, i + linesPerFile);
+                tmpSplitFileArray.push(split)
+            }
+           
+            setSplitFiles(tmpSplitFileArray)
+            setSplitFilesLineCount(linesPerFile)
+            setSplitFileLineCountRemainder(splitFileRemainder)
+
+        }
+    },[parsedInputFileLineCount, fileSplitCount, parsedInputFileRows])
+
+    useEffect(()=>{
+        if(splitFiles && splitFilesLineCount && splitFileCountRemainder){
+            console.log('BG - split file data debug - splitFiles, splitFilesLineCount, splitFileCountRemainder: ', splitFiles, splitFilesLineCount, splitFileCountRemainder)
+        }
+    }, [splitFiles, splitFilesLineCount, splitFileCountRemainder])
+
+    /* ------------------------------ */
 
     return (
         <div componentfile='TableSection.js' className={classes.componentContainer}>
@@ -45,13 +86,13 @@ const TableSection = (props) => {
                 </TabPanel>
                 <div className={classes.componentContentStats}>
                     <div>
-                        Number of files: <span className={classes.componentContentStatsValue}>{fileSplitCount ? fileSplitCount : 'N\\A'}</span>
+                        Number of files: <span className={classes.componentContentStatsValue}>{fileSplitCount && parsedInputFileRows ? fileSplitCount : 'N/A'}</span>
                     </div>
                     <div>
-                        Lines per files: <span className={classes.componentContentStatsValue}> 0000 </span>
+                        Total lines: <span className={classes.componentContentStatsValue}> {parsedInputFileLineCount && parsedInputFileRows ? parsedInputFileLineCount : 'N/A'} </span>
                     </div>
                     <div>
-                        Total lines: <span className={classes.componentContentStatsValue}> 0000 </span>
+                        Lines per files: <span className={classes.componentContentStatsValue}> {splitFilesLineCount && parsedInputFileRows ? <span> {splitFilesLineCount} {splitFileCountRemainder && <span>({splitFileCountRemainder} Remainder)</span>  }</span> : 'N/A'} </span>
                     </div>
                 </div>
             </div>

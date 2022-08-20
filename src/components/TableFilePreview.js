@@ -53,11 +53,6 @@ const TableFilePreview = (props) => {
 
     }, [parsedInputFileRows])
 
-    useUpdateEffect(() => {
-        console.log('BG - tableRows: ', tableRows)
-
-    }, [tableRows])
-
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
       };

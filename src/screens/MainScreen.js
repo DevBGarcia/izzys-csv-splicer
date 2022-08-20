@@ -24,10 +24,13 @@ const MainScreen = () => {
 
     const [selectedFile, setSelectedFile] = useState(null)
     const [parsedInputFileRows, setParsedInputFileRows] = useState(null)
+    const [parsedInputFileLineCount, setParsedInputFileLineCount] = useState(null)
     const [parsedInputFileHeaders, setParsedInputFileHeaders] = useState(null)
+
+    const [fileSplitCount, setFileSplitCount] = useState(null)
+
     const [isLoading, setIsLoading] = useState(false)
     const [fileProcessingStep, setFileProcessingStep] = useState(1)
-    const [fileSplitCount, setFileSplitCount] = useState(null)
 
     const handleInputFileChange = (fileChangeEvent) => {
         setSelectedFile(fileChangeEvent.target.files[0])
@@ -46,12 +49,14 @@ const MainScreen = () => {
         });
         setParsedInputFileHeaders(csvHeader)
         setParsedInputFileRows(array);
+        setParsedInputFileLineCount(array.length)
         setIsLoading(false)
       };
 
-    const handleApplyButton = (e) => {
+    const handleApplyButton = (e, splitCount) => {
         e.preventDefault();
 
+        setFileSplitCount(splitCount)
         if (selectedFile) {
             setIsLoading(true)
             fileReader.onload = function (event) {
@@ -92,6 +97,7 @@ const MainScreen = () => {
                 <TableSection
                     parsedInputFileHeaders={parsedInputFileHeaders}
                     parsedInputFileRows={parsedInputFileRows}
+                    parsedInputFileLineCount={parsedInputFileLineCount}
                     fileSplitCount={fileSplitCount}
                 />
             </div>

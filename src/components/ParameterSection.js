@@ -12,9 +12,13 @@ const ParameterSection = (props) => {
     const {
         selectedFile,
         handleApplyButton,
-        fileSplitCount,
-        setFileSplitCount,
     } = props
+
+    const [value, setValue] = React.useState('Controlled');
+
+    const handleChange = (event) => {
+        setValue(event.target.value);
+      };
 
     return (
         <div componentfile='ParameterSection.js' className={classes.componentContainer}>
@@ -23,24 +27,24 @@ const ParameterSection = (props) => {
             </div>
             <div className={classes.componentContent}>
                 <div className={classes.selectedInputRow}>
-                    <div>File Count:</div>
+                    <div>Number of Files:</div>
                     <TextField
                         id="outlined-number"
                         className={classes.inputClass}
                         type="number"
                         inputProps={{style:{height: 50, padding: 0, marginLeft:8, WebkitTextFillColor:'black'}}}
-                        value={fileSplitCount}
-                        onChange={(event)=>{setFileSplitCount(event.target.value)}}
+                        value={value}
+                        onChange={handleChange}
                     />
-                    <FormHelperText><div>Number of lines per file</div></FormHelperText>
+                    <FormHelperText><div>Number of files to split into (minimum: 1)</div></FormHelperText>
                 </div>
             </div>
             <Button
                 variant="contained"
                 component="label"
                 style={{ height: 50, alignSelf: 'center' }}
-                onClick={(e) => handleApplyButton(e)}
-                disabled={selectedFile == null || !fileSplitCount || fileSplitCount == 0}
+                onClick={(e) => handleApplyButton(e, value)}
+                disabled={selectedFile == null || !value || value < 1}
             >
                 Apply Parameters
             </Button>
