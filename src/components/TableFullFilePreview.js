@@ -42,11 +42,10 @@ const TableFullFilePreview = (props) => {
 
     const [tableHeaders, setTableHeaders] = useState([])
     const [tableRows, setTableRows] = useState([])
-    const [page, setPage] = React.useState(0);
+    const [page, setPage] = useState(0);
     const rowsPerPage = 10;
 
     useUpdateEffect(() => {
-        console.log('BG - useUpdateEffect triggered')
         if (parsedInputFileHeaders && parsedInputFileRows) {
             setTableHeaders(parsedInputFileHeaders)
             setTableRows(parsedInputFileRows)
@@ -68,14 +67,14 @@ const TableFullFilePreview = (props) => {
     }
 
     function createTableRowCells(tableRow) {
-        return Object.keys(tableRow).map((key, index) => <StyledTableCell key={key.toString() + index.toString()} align="left">{tableRow[key] != "" ? tableRow[key] : 'N/A'}</StyledTableCell>)
+        return Object.keys(tableRow).map((key, index) => <StyledTableCell key={key.toString() + index.toString()} align="left">{tableRow[key] !== "" ? tableRow[key] : 'N/A'}</StyledTableCell>)
     }
 
     return (
         <div componentfile='TableFullFilePreview.js' style={{ width: '100%', border:'1px solid rgba(224, 224, 224, 1)' }}>
             <TableContainer style={{height: 640}}>
                 <Table sx={{ minWidth: 650 }}>
-                    {tableHeaders.length != 0 &&
+                    {tableHeaders.length !== 0 &&
                     <TableHead>
                         <TableRow
                         >
@@ -83,7 +82,7 @@ const TableFullFilePreview = (props) => {
                         </TableRow>
                     </TableHead>}
                     <TableBody>
-                        {tableRows.length != 0 && tableRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
+                        {tableRows.length !== 0 && tableRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
                             <StyledTableRow
                                 key={row[0].toString() + index.toString()}
                             >

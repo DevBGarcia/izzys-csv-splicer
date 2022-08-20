@@ -69,7 +69,7 @@ const MainScreen = () => {
             >
                 <div style={{display:'flex', gap: 16, alignItems:'center'}}>
                     <CircularProgress color="inherit" />
-                    {fileProcessingStep == 1 && <div>{fileProcessingStep}: Processing Input Data</div>}
+                    {fileProcessingStep === 1 && <div>{fileProcessingStep}: Processing Input Data</div>}
                 </div>
             </Backdrop>
             <Header/>
