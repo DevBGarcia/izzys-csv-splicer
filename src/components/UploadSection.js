@@ -24,7 +24,7 @@ const UploadSection = (props) => {
             </div>
             <div className={classes.componentContent}>
                 <div className={classes.selectedFileRow}>
-                    <div>File Name: </div>
+                    <div>File Name:</div>
                     <FormControl>
                         <OutlinedInput
                             id="outlined-adornment-weight"
@@ -70,7 +70,8 @@ const useStyles = makeStyles({
     componentContent: {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
+        marginLeft: '20%'
+
     },
     selectedFileRow: {
         display: 'flex',

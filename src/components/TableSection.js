@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { makeStyles } from '@mui/styles';
 import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
+import Tabs from '@mui/material/Tabs';
 
-import TableFullFilePreview from "./TableFullFilePreview";
+import TableFilePreview from "./TableFilePreview";
+import { TabPanel, A11yProps } from "./TabPanelFunctionalComponents";
 
 const TableSection = (props) => {
 
@@ -13,8 +12,15 @@ const TableSection = (props) => {
 
     const {
         parsedInputFileHeaders,
-        parsedInputFileRows
+        parsedInputFileRows,
+        fileSplitCount
     } = props
+
+    const [tabValue, setTabValue] = useState(1)
+
+    const handleChangeTabValue = (event, newValue) => {
+        setTabValue(newValue)
+    }
 
     return (
         <div componentfile='TableSection.js' className={classes.componentContainer}>
@@ -24,13 +30,22 @@ const TableSection = (props) => {
             <div className={classes.componentContent}>
                 {/* <div className={classes.componentContentToolBar}>
                 </div> - TODO, add toolbar */}
-                <TableFullFilePreview
-                    parsedInputFileHeaders={parsedInputFileHeaders}
-                    parsedInputFileRows={parsedInputFileRows}
-                />
+                <Tabs style={{width:'100%'}} className={classes.targetFlexContainer} value={tabValue} onChange={handleChangeTabValue} aria-label="basic tabs example">
+                    <Tab style={{border:'1px solid rgba(224, 224, 224, 1)'}} label="Uploaded CSV File" {...A11yProps(0)} />
+                    <Tab style={{border:'1px solid rgba(224, 224, 224, 1)'}} label="Split Files" {...A11yProps(1)} />
+                </Tabs>
+                <TabPanel value={tabValue} index={0}>
+                    <TableFilePreview
+                        parsedInputFileHeaders={parsedInputFileHeaders}
+                        parsedInputFileRows={parsedInputFileRows}
+                    />
+                </TabPanel>
+                <TabPanel value={tabValue} index={1}>
+                    <div>Page 2</div>
+                </TabPanel>
                 <div className={classes.componentContentStats}>
                     <div>
-                        Number of files: <span className={classes.componentContentStatsValue}> 1</span>
+                        Number of files: <span className={classes.componentContentStatsValue}>{fileSplitCount ? fileSplitCount : 'N\\A'}</span>
                     </div>
                     <div>
                         Lines per files: <span className={classes.componentContentStatsValue}> 0000 </span>
@@ -91,6 +106,11 @@ const useStyles = makeStyles({
     },
     applyButton: {
         alignSelf: 'center'
+    },
+    targetFlexContainer: {
+        '& .MuiTabs-flexContainer':{
+            gap: 32
+        }
     }
 });
 

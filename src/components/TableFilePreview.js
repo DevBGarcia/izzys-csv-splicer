@@ -33,7 +33,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     fontWeight: 'bold'
   }));
 
-const TableFullFilePreview = (props) => {
+const TableFilePreview = (props) => {
 
     const {
         parsedInputFileHeaders,
@@ -71,7 +71,7 @@ const TableFullFilePreview = (props) => {
     }
 
     return (
-        <div componentfile='TableFullFilePreview.js' style={{ width: '100%', border:'1px solid rgba(224, 224, 224, 1)' }}>
+        <div componentfile='TableFilePreview.js' style={{ width: '100%', border:'1px solid rgba(224, 224, 224, 1)' }}>
             <TableContainer style={{height: 640}}>
                 <Table sx={{ minWidth: 650 }}>
                     {tableHeaders.length !== 0 &&
@@ -89,6 +89,9 @@ const TableFullFilePreview = (props) => {
                                 {createTableRowCells(row)}
                             </StyledTableRow>
                         ))}
+                        {tableRows.length === 0 &&
+                            <div style={{fontSize:32, padding: 16}}>* Upload a file to display a preview</div>
+                        }
                     </TableBody>
                 </Table>
             </TableContainer>
@@ -104,4 +107,4 @@ const TableFullFilePreview = (props) => {
     );
 }
 
-export default TableFullFilePreview
+export default TableFilePreview

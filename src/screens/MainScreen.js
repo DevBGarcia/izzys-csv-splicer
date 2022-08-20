@@ -27,6 +27,7 @@ const MainScreen = () => {
     const [parsedInputFileHeaders, setParsedInputFileHeaders] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [fileProcessingStep, setFileProcessingStep] = useState(1)
+    const [fileSplitCount, setFileSplitCount] = useState(null)
 
     const handleInputFileChange = (fileChangeEvent) => {
         setSelectedFile(fileChangeEvent.target.files[0])
@@ -84,11 +85,14 @@ const MainScreen = () => {
                 <ParameterSection
                     selectedFile={selectedFile}
                     handleApplyButton={handleApplyButton}
+                    fileSplitCount={fileSplitCount}
+                    setFileSplitCount={setFileSplitCount}
                 />
                 <Divider/>
                 <TableSection
                     parsedInputFileHeaders={parsedInputFileHeaders}
                     parsedInputFileRows={parsedInputFileRows}
+                    fileSplitCount={fileSplitCount}
                 />
             </div>
             <Footer/>
