@@ -68,7 +68,7 @@ const TableFilePreview = (props) => {
 
     return (
         <div componentfile='TableFilePreview.js' style={{ width: '100%', border:'1px solid rgba(224, 224, 224, 1)' }}>
-            <TableContainer style={{height: isSplitTableView ? 636 : 700}}>
+            <TableContainer style={{height: isSplitTableView ? 686 : 750}}>
                 <Table sx={{ minWidth: 650 }}>
                     {tableHeaders.length !== 0 &&
                     <TableHead>

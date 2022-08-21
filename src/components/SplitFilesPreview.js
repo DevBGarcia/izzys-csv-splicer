@@ -20,7 +20,7 @@ const SplitFilesPreview = (props) => {
 
 
     return (
-        <div componentfile='SplitFilesPreview.js' style={{ width: '100%', border: '1px solid rgba(224, 224, 224, 1)', height: 640}}>
+        <div componentfile='SplitFilesPreview.js' style={{ width: '100%', border: '1px solid rgba(224, 224, 224, 1)', minHeight: 750}}>
             {splitFiles.length === 0 && 
                 <div style={{fontSize:32, padding: 16}}>* Upload a file along with an input parameter to display a preview</div>
             }
