@@ -14,7 +14,7 @@ const ParameterSection = (props) => {
         handleApplyButton,
     } = props
 
-    const [value, setValue] = React.useState('Controlled');
+    const [value, setValue] = useState(null);
 
     const handleChange = (event) => {
         setValue(event.target.value);

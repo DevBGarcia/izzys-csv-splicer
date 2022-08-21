@@ -4,6 +4,7 @@ import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 
 import TableFilePreview from "./TableFilePreview";
+import SplitFilesPreview from "./SplitFilesPreview";
 import { TabPanel, A11yProps } from "./TabPanelFunctionalComponents";
 
 const TableSection = (props) => {
@@ -82,7 +83,11 @@ const TableSection = (props) => {
                     />
                 </TabPanel>
                 <TabPanel value={tabValue} index={1}>
-                    <div>Page 2</div>
+                    <SplitFilesPreview
+                        parsedInputFileHeaders={parsedInputFileHeaders}
+                        splitFiles={splitFiles}
+                        fileSplitCount={fileSplitCount}
+                    />
                 </TabPanel>
                 <div className={classes.componentContentStats}>
                     <div>
@@ -100,6 +105,8 @@ const TableSection = (props) => {
         </div>
     )
 }
+
+export default TableSection;
 
 const useStyles = makeStyles({
     componentContainer: {
@@ -154,5 +161,3 @@ const useStyles = makeStyles({
         }
     }
 });
-
-export default TableSection;

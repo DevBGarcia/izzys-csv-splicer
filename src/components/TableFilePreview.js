@@ -37,7 +37,8 @@ const TableFilePreview = (props) => {
 
     const {
         parsedInputFileHeaders,
-        parsedInputFileRows
+        parsedInputFileRows,
+        isSplitTableView = false
     } = props
 
     const [tableHeaders, setTableHeaders] = useState([])
@@ -67,7 +68,7 @@ const TableFilePreview = (props) => {
 
     return (
         <div componentfile='TableFilePreview.js' style={{ width: '100%', border:'1px solid rgba(224, 224, 224, 1)' }}>
-            <TableContainer style={{height: 640}}>
+            <TableContainer style={{height: isSplitTableView ? 636 : 700}}>
                 <Table sx={{ minWidth: 650 }}>
                     {tableHeaders.length !== 0 &&
                     <TableHead>
