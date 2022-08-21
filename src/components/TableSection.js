@@ -80,6 +80,7 @@ const TableSection = (props) => {
                     <TableFilePreview
                         parsedInputFileHeaders={parsedInputFileHeaders}
                         parsedInputFileRows={parsedInputFileRows}
+                        tableKey={`${tabValue}`}
                     />
                 </TabPanel>
                 <TabPanel value={tabValue} index={1}>
@@ -87,6 +88,7 @@ const TableSection = (props) => {
                         parsedInputFileHeaders={parsedInputFileHeaders}
                         splitFiles={splitFiles}
                         fileSplitCount={fileSplitCount}
+                        tableSplitKey={`${tabValue}`}
                     />
                 </TabPanel>
                 <div className={classes.componentContentStats}>

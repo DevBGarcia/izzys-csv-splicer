@@ -9,7 +9,8 @@ const SplitFilesPreview = (props) => {
     const {
         parsedInputFileHeaders,
         splitFiles,
-        fileSplitCount
+        fileSplitCount,
+        tableSplitKey
     } = props
 
     const [fileIndex, setFileIndex] = useState(1);
@@ -31,6 +32,7 @@ const SplitFilesPreview = (props) => {
                     parsedInputFileHeaders={parsedInputFileHeaders}
                     parsedInputFileRows={splitFiles[fileIndex-1]}
                     isSplitTableView
+                    tableKey={`${tableSplitKey}-${fileIndex}`}
                 />
             </div>
             }
