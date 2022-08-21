@@ -67,6 +67,8 @@ const MainScreen = () => {
         }
     }
 
+    console.log('BG - parsedInputFileRows: ', parsedInputFileRows)
+
     return (
         <div componentfile='MainScreen.js'>
             <Backdrop
